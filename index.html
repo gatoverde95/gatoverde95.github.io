@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
   <title>GatoVerde95 - Repositorios</title>
   <style>
     body {
@@ -9,62 +9,50 @@
       margin: 0;
       padding: 0;
     }
-
-    header {
-      background-color: #333;
+    
+    .header {
+      background-color: #24292e;
       color: #fff;
-      padding: 20px;
-      text-align: center;
+      padding: 10px;
     }
-
-    h1 {
-      font-size: 24px;
-      margin: 0;
-    }
-
+    
     .container {
       max-width: 800px;
       margin: 20px auto;
-      padding: 0 20px;
+      padding: 20px;
     }
-
+    
+    h1 {
+      margin: 0;
+    }
+    
     .repo-list {
       list-style: none;
       padding: 0;
     }
-
-    .repo-list li {
+    
+    .repo-item {
       margin-bottom: 10px;
     }
-
-    .repo-name {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .repo-description {
-      color: #666;
-      margin-top: 5px;
+    
+    .repo-link {
+      color: #0366d6;
+      text-decoration: none;
     }
   </style>
 </head>
+
 <body>
-  <header>
+  <div class="header">
     <h1>Repositorios</h1>
-  </header>
-  
+  </div>
   <div class="container">
     <ul class="repo-list">
-      <li>
-        <a href="https://github.com/gatoverde95/pheonixemuproject-translated" class="repo-name">PheonixEmuProject-Translated</a>
-        <p class="repo-description">Traduccion de el Emulador PheonixEmuProject a distintos idiomas.</p>
-      </li>
-      <li>
-        <a href="https://github.com/gatoverde95/AlphaSuitQR" class="repo-name">AlphaSuitQR</a>
-        <p class="repo-description">Lector y Generador de codigos QR.</p>
-      </li>
-      <!-- Agrega más repositorios aquí -->
+      <li class="repo-item"><a class="repo-link" href="https://github.com/gatoverde95/pheonixemuproject-translated">PheonixEmuProject-Translated</a></li>
+      <li class="repo-item"><a class="repo-link" href="https://github.com/gatoverde95/AlphaSuitQR">AlphaSuitQR</a></li>
+      <!-- Agrega más elementos de lista para tus repositorios -->
     </ul>
   </div>
 </body>
+
 </html>
