@@ -1,60 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GatoVerde95 Projects</title>
+  <meta charset="UTF-8">
+  <title>GatoVerde95 - Repositorios</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .repo-list {
-      list-style-type: none;
       padding: 0;
     }
 
-    .repo-list-item {
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .repo-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .repo-list li {
       margin-bottom: 10px;
     }
 
     .repo-name {
+      font-size: 18px;
       font-weight: bold;
     }
 
     .repo-description {
-      color: #888;
-    }
-
-    .repo-link {
-      color: #0366d6;
-      text-decoration: none;
+      color: #666;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Repositorios</h1>
+  </header>
+  
   <div class="container">
-    <h1>Repositorios de GitHub</h1>
     <ul class="repo-list">
-      <li class="repo-list-item">
-        <div class="repo-name">PheonixEmuProject-Translated</div>
-        <div class="repo-description">Traduccion de el Emulador PheonixEmuProject a distintos idiomas</div>
-        <a class="repo-link" href="https://github.com/gatoverde95/pheonixemuproject-translated">Ver en GitHub</a>
+      <li>
+        <a href="https://github.com/gatoverde95/pheonixemuproject-translated" class="repo-name">PheonixEmuProject-Translated</a>
+        <p class="repo-description">Traduccion de el Emulador PheonixEmuProject a distintos idiomas.</p>
       </li>
-      <li class="repo-list-item">
-        <div class="repo-name">AlphaSuitQR</div>
-        <div class="repo-description">Creador y Lector QR</div>
-        <a class="repo-link" href="https://github.com/gatoverde95/AlphaSuitQR">Ver en GitHub</a>
+      <li>
+        <a href="https://github.com/gatoverde95/AlphaSuitQR" class="repo-name">AlphaSuitQR</a>
+        <p class="repo-description">Lector y Generador de codigos QR.</p>
       </li>
+      <!-- Agrega más repositorios aquí -->
     </ul>
   </div>
 </body>
