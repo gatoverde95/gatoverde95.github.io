@@ -1,72 +1,29 @@
-Claro, aquí tienes un ejemplo de cómo puedes crear una página HTML con un diseño atractivo y una sección para mostrar enlaces a repositorios de GitHub utilizando CSS:
-
-```html
 <!DOCTYPE html>
 <html>
 <head>
   <title>GatoVerde95</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
-    }
-    
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    
-    h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .repository-list {
-      list-style-type: none;
-      padding: 0;
-    }
-    
-    .repository-list li {
-      margin-bottom: 10px;
-    }
-    
-    .repository-list li a {
-      display: block;
-      padding: 10px;
-      background-color: #f2f2f2;
-      text-decoration: none;
-      color: #333;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-    
-    .repository-list li a:hover {
-      background-color: #e0e0e0;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <header>
-    <h1>Mis Repositorios en GitHub</h1>
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <h1>GatoVerde95 - Repositorios</h1>
   </header>
-  
-  <div class="container">
-    <ul class="repository-list">
-      <li><a href="https://github.com/gatoverde95/pheonixemuproject-translated">PheonixEmuProject-Translated</a></li>
+
+  <nav>
+    <ul>
       <li><a href="https://github.com/gatoverde95/AlphaSuitQR">AlphaSuitQR</a></li>
+      <li><a href="https://github.com/gatoverde95/pheonixemuproject-translated">PheonixEmuProject-Translated</a></li>
     </ul>
-  </div>
+  </nav>
+
+  <main>
+  </main>
+
+  <footer>
+    <p>Derechos de autor &copy; 2023. Con licencia GNU proporcionada de manera legal.</p>
+  </footer>
 </body>
 </html>
