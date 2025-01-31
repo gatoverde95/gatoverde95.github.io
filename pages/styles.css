@@ -105,6 +105,13 @@ section h2 {
     justify-content: space-between;
 }
 
+.program-details {
+    flex: 1 1 55%; /* Detalles ocupan el 55% del ancho */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .program-image {
     flex: 1 1 40%; /* Captura de pantalla ocupa el 40% del ancho */
     display: flex;
@@ -118,13 +125,6 @@ section h2 {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 1px 3px var(--aside-shadow);
-}
-
-.program-details {
-    flex: 1 1 55%; /* Detalles ocupan el 55% del ancho */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .program-buttons {
