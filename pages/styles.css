@@ -92,6 +92,7 @@ section h2 {
     display: flex;
     gap: 1em;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .project-images img {
@@ -222,6 +223,11 @@ footer p {
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+
+    .project-images {
+        flex-direction: column;
+        align-items: center;
     }
 
     aside ul {
