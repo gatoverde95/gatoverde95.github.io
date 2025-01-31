@@ -3,10 +3,10 @@
     --text-color: #e0e0e0;
     --header-background: #1f1f1f;
     --nav-background: #1f1f1f;
-    --button-background: #bb86fc;
-    --button-hover-background: #3700b3;
-    --link-color: #bb86fc;
-    --link-hover-color: #3700b3;
+    --button-background: #32CD32; /* Verde lima */
+    --button-hover-background: #228B22; /* Verde lima oscuro */
+    --link-color: #32CD32; /* Verde lima */
+    --link-hover-color: #228B22; /* Verde lima oscuro */
     --aside-background: #1f1f1f;
     --aside-shadow: rgba(0, 0, 0, 0.3);
     --icon-size: 24px; /* Tamaño de los íconos de redes sociales */
