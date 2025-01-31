@@ -3,10 +3,10 @@
     --text-color: #e0e0e0;
     --header-background: #1f1f1f;
     --nav-background: #1f1f1f;
-    --button-background: #bb86fc;
-    --button-hover-background: #3700b3;
-    --link-color: #bb86fc;
-    --link-hover-color: #3700b3;
+    --button-background: #a4c639; /* Verde lima */
+    --button-hover-background: #8ab636; /* Verde lima más oscuro */
+    --link-color: #a4c639; /* Verde lima */
+    --link-hover-color: #8ab636; /* Verde lima más oscuro */
     --aside-background: #1f1f1f;
     --aside-shadow: rgba(0, 0, 0, 0.3);
     --icon-size: 24px; /* Tamaño de los íconos de redes sociales */
@@ -101,7 +101,8 @@ section h2 {
 }
 
 .project-images img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 600px; /* Limita el tamaño máximo a 600px */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 1px 3px var(--aside-shadow);
@@ -247,5 +248,9 @@ footer p {
 
     section {
         padding: 1em;
+    }
+
+    .project-images img {
+        max-width: 100%; /* Asegura que las imágenes no se desborden */
     }
 }
