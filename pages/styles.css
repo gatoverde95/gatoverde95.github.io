@@ -101,7 +101,8 @@ section h2 {
 }
 
 .program-image img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 300px; /* Limita el tamaño máximo a 300px */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 1px 3px var(--aside-shadow);
@@ -181,7 +182,7 @@ footer p {
     margin: 2em auto;
     padding: 2em;
     border-radius: 8px;
-    box-shadow: 0 1px 3px var(--aside-shadow);
+    box-shadow: 0 1px 3px var (--aside-shadow);
     text-align: center;
 }
 
