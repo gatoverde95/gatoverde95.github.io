@@ -3,10 +3,10 @@
     --text-color: #e0e0e0;
     --header-background: #1f1f1f;
     --nav-background: #1f1f1f;
-    --button-background: #32CD32; /* Verde lima */
-    --button-hover-background: #228B22; /* Verde lima oscuro */
-    --link-color: #32CD32; /* Verde lima */
-    --link-hover-color: #228B22; /* Verde lima oscuro */
+    --button-background: #bb86fc;
+    --button-hover-background: #3700b3;
+    --link-color: #bb86fc;
+    --link-hover-color: #3700b3;
     --aside-background: #1f1f1f;
     --aside-shadow: rgba(0, 0, 0, 0.3);
     --icon-size: 24px; /* Tamaño de los íconos de redes sociales */
@@ -74,7 +74,7 @@ main {
     margin: 0 auto;
 }
 
-section.program-section {
+section {
     background: var(--background-color);
     margin-bottom: 2em;
     padding: 2em;
@@ -82,40 +82,23 @@ section.program-section {
     box-shadow: 0 1px 3px var(--aside-shadow);
 }
 
-.program-content {
-    display: flex;
-    align-items: center;
-    gap: 2em;
-}
-
-.program-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.program-image img {
-    max-width: 300px; /* Tamaño razonable para las capturas */
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px var(--aside-shadow);
-}
-
-.program-details {
-    flex: 2;
-}
-
-.program-details h2 {
+section h2 {
     margin-top: 0;
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 400;
 }
 
-.program-buttons {
-    margin-top: 1em;
+.project-images {
     display: flex;
-    justify-content: flex-start;
     gap: 1em;
+    justify-content: center;
+}
+
+.project-images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px var(--aside-shadow);
 }
 
 button {
@@ -142,6 +125,12 @@ aside {
     text-align: center;
 }
 
+aside h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
 aside ul {
     list-style-type: none;
     padding: 0;
@@ -155,18 +144,14 @@ aside ul li {
 }
 
 aside ul li a {
+    color: var(--link-color);
     text-decoration: none;
+    transition: color 0.3s;
+    font-size: var(--icon-size);
 }
 
-aside ul li img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: transform 0.3s;
-}
-
-aside ul li img:hover {
-    transform: scale(1.1);
+aside ul li a:hover {
+    color: var(--link-hover-color);
 }
 
 footer {
@@ -185,18 +170,66 @@ footer p {
     margin: 0.5em 0;
 }
 
-/* Media queries para hacer las imágenes responsivas */
+.collaborate-section {
+    background: var(--background-color);
+    margin: 2em auto;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px var(--aside-shadow);
+    text-align: center;
+}
+
+.collaborate-section h2 {
+    font-size: 1.8em;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
-    .program-content {
+    header {
         flex-direction: column;
         text-align: center;
     }
 
-    .program-image img {
-        max-width: 100%;
+    header img {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        padding: 10px;
+    }
+
+    .program-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .program-details {
+        padding-left: 0;
+        text-align: center;
     }
 
     .program-buttons {
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    aside ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        padding: 1em;
     }
 }
