@@ -107,10 +107,14 @@ section h2 {
 
 .program-image {
     flex: 1 1 40%; /* Captura de pantalla ocupa el 40% del ancho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .program-image img {
     width: 100%;
+    max-width: 100%; /* Asegura que las imágenes no se desborden */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 1px 3px var(--aside-shadow);
