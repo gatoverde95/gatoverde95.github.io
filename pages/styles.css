@@ -28,7 +28,6 @@ header {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #333;
-    position: relative;
 }
 
 header img {
@@ -39,44 +38,6 @@ header h1 {
     margin: 0;
     font-size: 1.5em;
     font-weight: 500;
-}
-
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.nav-toggle .hamburger {
-    width: 30px;
-    height: 3px;
-    background: var(--text-color);
-    border-radius: 2px;
-    position: relative;
-    transition: all 0.3s;
-}
-
-.nav-toggle .hamburger::before,
-.nav-toggle .hamburger::after {
-    content: '';
-    width: 30px;
-    height: 3px;
-    background: var(--text-color);
-    border-radius: 2px;
-    position: absolute;
-    transition: all 0.3s;
-}
-
-.nav-toggle .hamburger::before {
-    top: -10px;
-}
-
-.nav-toggle .hamburger::after {
-    top: 10px;
 }
 
 nav ul {
@@ -224,31 +185,8 @@ footer p {
     margin: 0.5em 0;
 }
 
-/* Media queries para hacer las imágenes responsivas y el menú hamburguesa */
+/* Media queries para hacer las imágenes responsivas */
 @media (max-width: 768px) {
-    .nav-toggle {
-        display: flex;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* Ajusta según la altura del header */
-        left: 0;
-        background-color: var(--nav-background);
-        z-index: 1000;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    nav ul li {
-        text-align: center;
-    }
-
     .program-content {
         flex-direction: column;
         text-align: center;
