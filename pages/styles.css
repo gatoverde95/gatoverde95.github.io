@@ -1,3 +1,4 @@
+/* Variables de color para el tema oscuro */
 :root {
     --background-color: #121212;
     --text-color: #e0e0e0;
@@ -80,25 +81,36 @@ section {
     padding: 2em;
     border-radius: 8px;
     box-shadow: 0 1px 3px var(--aside-shadow);
+    text-align: center;
 }
 
 section h2 {
     margin-top: 0;
-    font-size: 1.8em;
+    font-size: 2em;
     font-weight: 400;
 }
 
-.project-images {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
+.program-image {
+    margin: 1em 0;
 }
 
-.project-images img {
-    max-width: 100%;
+.program-image img {
+    width: 100%;
+    max-width: 800px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 1px 3px var(--aside-shadow);
+}
+
+.program-description {
+    margin: 1em 0;
+}
+
+.program-buttons {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
 }
 
 button {
@@ -170,17 +182,9 @@ footer p {
     margin: 0.5em 0;
 }
 
-.collaborate-section {
-    background: var(--background-color);
-    margin: 2em auto;
-    padding: 2em;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px var(--aside-shadow);
-    text-align: center;
-}
-
-.collaborate-section h2 {
-    font-size: 1.8em;
-    font-weight: 400;
-    margin-top: 0;
+/* Media queries para hacer las imágenes responsivas */
+@media (max-width: 768px) {
+    .program-image img {
+        max-width: 100%;
+    }
 }
