@@ -1,4 +1,3 @@
-/* Variables de color para el tema oscuro */
 :root {
     --background-color: #121212;
     --text-color: #e0e0e0;
@@ -75,7 +74,7 @@ main {
     margin: 0 auto;
 }
 
-section {
+section.program-section {
     background: var(--background-color);
     margin-bottom: 2em;
     padding: 2em;
@@ -84,7 +83,7 @@ section {
     text-align: center;
 }
 
-section h2 {
+section.program-section h2 {
     margin-top: 0;
     font-size: 2em;
     font-weight: 400;
@@ -92,11 +91,13 @@ section h2 {
 
 .program-image {
     margin: 1em 0;
+    display: flex;
+    justify-content: center;
 }
 
 .program-image img {
     width: 100%;
-    max-width: 800px;
+    max-width: 500px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 1px 3px var(--aside-shadow);
