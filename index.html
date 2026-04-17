@@ -11,7 +11,19 @@
     <link rel="stylesheet" href="style.css">
     <script>
         tailwind.config = {
-            theme: { extend: { fontFamily: { sans: ['Roboto Mono', 'monospace'] } } }
+            theme: { 
+                extend: { 
+                    fontFamily: { sans: ['Roboto Mono', 'monospace'] },
+                    screens: {
+                        'xs': '480px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px',
+                    }
+                } 
+            }
         }
     </script>
 </head>
@@ -20,12 +32,12 @@
     <div class="grid-bg fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Nav -->
-    <nav class="fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 sm:gap-2.5">
-                <img src="asc.svg" alt="Logo" class="w-6 h-6 sm:w-8 sm:h-8">
-                <span class="text-emerald-200 font-medium text-xs sm:text-sm tracking-tight hidden sm:inline">The GatoVerde95 Journal</span>
-                <span class="text-emerald-200 font-medium text-xs tracking-tight sm:hidden">GV95</span>
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-bar">
+        <div class="max-w-[1400px] mx-auto px-4 xs:px-5 sm:px-6 h-14 xs:h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <img src="asc.svg" alt="Logo" class="w-6 xs:w-7 sm:w-8 h-6 xs:h-7 sm:h-8">
+                <span class="text-emerald-200 font-medium text-xs sm:text-sm tracking-tight hidden xs:inline">The GatoVerde95 Journal</span>
+                <span class="text-emerald-200 font-medium text-xs xs:hidden">GV95</span>
             </a>
             <div class="hidden md:flex items-center gap-5 lg:gap-8">
                 <a href="#inicio" class="nav-link text-[11px] font-medium tracking-widest uppercase">Inicio</a>
@@ -34,21 +46,24 @@
                 <a href="#sobre" class="nav-link text-[11px] font-medium tracking-widest uppercase">Sobre</a>
                 <a href="#contacto" class="nav-link text-[11px] font-medium tracking-widest uppercase">Contacto</a>
             </div>
-            <div class="flex items-center gap-2 sm:gap-3">
+            <div class="flex items-center gap-2 xs:gap-3">
                 <div class="hidden sm:flex items-center gap-2 text-[11px] text-emerald-700">
-                    <span class="status-dot w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>Disponible
+                    <span class="status-dot w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                    <span class="hidden lg:inline">Disponible</span>
                 </div>
-                <a href="https://cuerdos.github.io" target="_blank" class="btn-cuerdos px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] font-bold tracking-widest uppercase hidden lg:inline-flex items-center gap-2">
+                <a href="https://cuerdos.github.io" target="_blank" class="btn-cuerdos px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] font-bold tracking-widest uppercase hidden xl:inline-flex items-center gap-2">
                     CuerdOS <iconify-icon icon="mdi:arrow-top-right" width="12"></iconify-icon>
                 </a>
-                <a href="https://github.com/gatoverde95" target="_blank" class="btn-glow px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-[10px] font-bold tracking-widest uppercase hidden sm:inline-flex items-center gap-2">
+                <a href="https://github.com/gatoverde95" target="_blank" class="btn-glow px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-[10px] font-bold tracking-widest uppercase hidden xs:inline-flex items-center gap-2">
                     <iconify-icon icon="mdi:github" width="14"></iconify-icon>GitHub
                 </a>
-                <button id="mobile-toggle" class="md:hidden text-emerald-300" aria-label="Menú"><iconify-icon icon="mdi:menu" width="24"></iconify-icon></button>
+                <button id="mobile-toggle" class="md:hidden text-emerald-300" aria-label="Menú">
+                    <iconify-icon icon="mdi:menu" width="24"></iconify-icon>
+                </button>
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden border-t border-emerald-500/10 bg-black/95 backdrop-blur-xl">
-            <div class="px-5 py-5 sm:px-6 sm:py-6 flex flex-col gap-4">
+            <div class="px-5 py-5 flex flex-col gap-4">
                 <a href="#inicio" class="text-sm text-emerald-800 hover:text-emerald-300 transition-colors mobile-link py-1">Inicio</a>
                 <a href="#proyectos" class="text-sm text-emerald-800 hover:text-emerald-300 transition-colors mobile-link py-1">Proyectos</a>
                 <a href="#habilidades" class="text-sm text-emerald-800 hover:text-emerald-300 transition-colors mobile-link py-1">Habilidades</a>
@@ -62,86 +77,88 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section id="inicio" class="relative min-h-screen flex items-center pt-14 sm:pt-16">
-        <div class="absolute top-1/4 left-1/4 w-[300px] sm:w-[500px] lg:w-[600px] h-[300px] sm:h-[500px] lg:h-[600px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[250px] sm:w-[350px] lg:w-[400px] h-[250px] sm:h-[350px] lg:h-[400px] rounded-full bg-emerald-600/5 blur-[100px] pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/4 w-[250px] xs:w-[350px] sm:w-[500px] lg:w-[600px] h-[250px] xs:h-[350px] sm:h-[500px] lg:h-[600px] rounded-full bg-emerald-500/5 blur-[100px] sm:blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[200px] xs:w-[280px] sm:w-[400px] lg:w-[500px] h-[200px] xs:h-[280px] sm:h-[400px] lg:h-[500px] rounded-full bg-emerald-600/5 blur-[80px] sm:blur-[100px] pointer-events-none"></div>
         
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 w-full py-12 sm:py-16 lg:py-0">
-            <div class="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24 items-center">
+        <div class="max-w-[1400px] mx-auto px-4 xs:px-5 sm:px-6 w-full py-10 xs:py-12 sm:py-16 lg:py-20">
+            <div class="flex flex-col lg:flex-row lg:items-center gap-8 xs:gap-10 sm:gap-12 lg:gap-16">
                 
-                <div class="order-1 lg:order-none w-full">
+                <!-- Columna izquierda: texto -->
+                <div class="flex-1 text-center lg:text-left">
                     <div class="fade-up" style="animation-delay:.1s">
-                        <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-emerald-500/10 bg-emerald-500/5 mb-5 sm:mb-8">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/10 bg-emerald-500/5 mb-5 sm:mb-6 lg:mb-8 mx-auto lg:mx-0 w-fit">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                            <span class="text-[9px] sm:text-[10px] font-medium tracking-widest uppercase text-emerald-400">CuerdOS GNU/Linux — Desarrollador</span>
+                            <span class="text-[9px] xs:text-[10px] font-medium tracking-widest uppercase text-emerald-400 whitespace-nowrap">CuerdOS GNU/Linux — Desarrollador</span>
                         </div>
                     </div>
                     
-                    <h1 class="fade-up" style="animation-delay:.2s">
-                        <span class="block text-[clamp(1.1rem,4vw,2rem)] font-medium leading-[1.1] tracking-tight text-emerald-800 mb-1">The</span>
-                        <span class="block text-[clamp(1.8rem,7vw,4.5rem)] font-medium leading-[1] tracking-tighter text-gradient-hero break-words">GatoVerde95</span>
-                        <span class="block text-[clamp(1.1rem,4vw,2rem)] font-medium leading-[1.1] tracking-tight text-emerald-800 mt-1">Journal</span>
-                    </h1>
+                    <div class="fade-up space-y-1" style="animation-delay:.2s">
+                        <div class="text-[clamp(1rem,5vw,1.8rem)] font-medium tracking-tight text-emerald-800">The</div>
+                        <div class="text-[clamp(2rem,8vw,4rem)] lg:text-[clamp(2.5rem,5vw,4.5rem)] font-medium leading-[1.05] tracking-tighter text-gradient-hero break-words">GatoVerde95</div>
+                        <div class="text-[clamp(1rem,5vw,1.8rem)] font-medium tracking-tight text-emerald-800">Journal</div>
+                    </div>
                     
-                    <p class="fade-up mt-5 sm:mt-8 text-xs sm:text-sm lg:text-base font-light leading-relaxed text-emerald-300/70 max-w-lg" style="animation-delay:.4s">
+                    <p class="fade-up mt-5 xs:mt-6 sm:mt-8 text-xs xs:text-sm lg:text-base font-light leading-relaxed text-emerald-300/70 max-w-md mx-auto lg:mx-0" style="animation-delay:.3s">
                         Técnico en computación, redes y mantenimiento. Desarrollador en CuerdOS GNU/Linux — construyendo herramientas del sistema con Qt 6, Python 3 y C/C++.
                     </p>
                     
-                    <div class="fade-up flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-10" style="animation-delay:.5s">
-                        <a href="#proyectos" class="btn-glow px-5 sm:px-8 py-2 sm:py-3 rounded-full text-[10px] font-bold tracking-widest uppercase inline-flex items-center gap-2">
+                    <div class="fade-up flex flex-wrap gap-3 justify-center lg:justify-start mt-6 xs:mt-8 sm:mt-10" style="animation-delay:.4s">
+                        <a href="#proyectos" class="btn-glow px-5 xs:px-6 py-2 xs:py-2.5 rounded-full text-[10px] font-bold tracking-widest uppercase inline-flex items-center gap-2">
                             Ver proyectos <iconify-icon icon="mdi:arrow-right" width="14"></iconify-icon>
                         </a>
-                        <a href="#contacto" class="btn-outline px-5 sm:px-8 py-2 sm:py-3 rounded-full text-[10px] font-bold tracking-widest uppercase inline-flex items-center gap-2">Contacto</a>
+                        <a href="#contacto" class="btn-outline px-5 xs:px-6 py-2 xs:py-2.5 rounded-full text-[10px] font-bold tracking-widest uppercase inline-flex items-center gap-2">Contacto</a>
                     </div>
                     
-                    <div class="fade-up flex items-center gap-5 sm:gap-8 mt-8 sm:mt-14" style="animation-delay:.6s">
+                    <div class="fade-up flex items-center justify-center lg:justify-start gap-6 xs:gap-8 sm:gap-10 mt-8 xs:mt-10 sm:mt-12" style="animation-delay:.5s">
                         <div class="text-center">
-                            <div class="text-xl sm:text-2xl font-medium text-emerald-100">8</div>
-                            <div class="text-[9px] sm:text-[10px] text-emerald-600 tracking-wider uppercase mt-1">Proyectos</div>
+                            <div class="text-lg xs:text-xl sm:text-2xl font-medium text-emerald-100">8</div>
+                            <div class="text-[8px] xs:text-[9px] sm:text-[10px] text-emerald-600 tracking-wider uppercase mt-0.5 xs:mt-1">Proyectos</div>
                         </div>
-                        <div class="w-px h-8 sm:h-10 bg-emerald-500/10"></div>
+                        <div class="w-px h-6 xs:h-8 sm:h-10 bg-emerald-500/10"></div>
                         <div class="text-center">
-                            <div class="text-xl sm:text-2xl font-medium text-emerald-100">7</div>
-                            <div class="text-[9px] sm:text-[10px] text-emerald-600 tracking-wider uppercase mt-1">Propios</div>
+                            <div class="text-lg xs:text-xl sm:text-2xl font-medium text-emerald-100">7</div>
+                            <div class="text-[8px] xs:text-[9px] sm:text-[10px] text-emerald-600 tracking-wider uppercase mt-0.5 xs:mt-1">Propios</div>
                         </div>
-                        <div class="w-px h-8 sm:h-10 bg-emerald-500/10"></div>
+                        <div class="w-px h-6 xs:h-8 sm:h-10 bg-emerald-500/10"></div>
                         <div class="text-center">
-                            <div class="text-xl sm:text-2xl font-medium text-emerald-100">1</div>
-                            <div class="text-[9px] sm:text-[10px] text-emerald-600 tracking-wider uppercase mt-1">Colaboración</div>
+                            <div class="text-lg xs:text-xl sm:text-2xl font-medium text-emerald-100">1</div>
+                            <div class="text-[8px] xs:text-[9px] sm:text-[10px] text-emerald-600 tracking-wider uppercase mt-0.5 xs:mt-1">Colaboración</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="order-2 lg:order-none w-full flex justify-center mt-6 lg:mt-0">
+                <!-- Columna derecha: imagen -->
+                <div class="flex-1 flex justify-center lg:justify-end mt-6 xs:mt-8 sm:mt-10 lg:mt-0">
                     <div class="relative">
-                        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-emerald-700/15 to-transparent blur-2xl"></div>
-                        <div class="relative w-[260px] h-[340px] sm:w-[300px] sm:h-[380px] lg:w-[380px] lg:h-[480px] rounded-2xl overflow-hidden border border-emerald-500/10 bg-[#080c08]">
+                        <div class="absolute -inset-3 xs:-inset-4 rounded-3xl bg-gradient-to-br from-emerald-700/15 to-transparent blur-2xl"></div>
+                        <div class="relative w-[240px] xs:w-[270px] sm:w-[300px] md:w-[320px] lg:w-[360px] xl:w-[400px] h-[320px] xs:h-[360px] sm:h-[400px] md:h-[420px] lg:h-[460px] xl:h-[500px] rounded-2xl overflow-hidden border border-emerald-500/10 bg-[#080c08]">
                             <img src="avatar.webp" alt="Leo H. Perez" class="w-full h-full object-cover object-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                            <div class="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5">
-                                <div class="flex items-center gap-2 sm:gap-3">
-                                    <div class="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-emerald-900/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
-                                        <iconify-icon icon="mdi:map-marker" style="color:#34d399;font-size:14px"></iconify-icon>
+                            <div class="absolute bottom-3 xs:bottom-4 sm:bottom-5 left-3 xs:left-4 sm:left-5 right-3 xs:right-4 sm:right-5">
+                                <div class="flex items-center gap-2 xs:gap-3">
+                                    <div class="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-900/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                                        <iconify-icon icon="mdi:map-marker" style="color:#34d399;font-size:12px"></iconify-icon>
                                     </div>
                                     <div>
-                                        <div class="text-xs sm:text-sm font-medium text-emerald-100">Honduras</div>
-                                        <div class="text-[9px] sm:text-[10px] text-emerald-500">Remoto</div>
+                                        <div class="text-[11px] xs:text-xs sm:text-sm font-medium text-emerald-100">Honduras</div>
+                                        <div class="text-[8px] xs:text-[9px] sm:text-[10px] text-emerald-500">Remoto</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="absolute -top-3 -right-3 px-2.5 sm:px-4 py-1 sm:py-2 rounded-xl bg-[#080c08] border border-emerald-500/10 shadow-2xl" style="animation:float 5s ease-in-out infinite">
-                            <div class="flex items-center gap-1 sm:gap-2">
-                                <iconify-icon icon="mdi:gnu" style="color:#6ee7b7;font-size:14px sm:18px"></iconify-icon>
-                                <span class="text-[9px] sm:text-[11px] font-medium text-emerald-300">CuerdOS</span>
+                        <div class="absolute -top-2 xs:-top-3 -right-2 xs:-right-3 px-2 xs:px-2.5 sm:px-3 py-0.5 xs:py-1 sm:py-1.5 rounded-xl bg-[#080c08] border border-emerald-500/10 shadow-2xl" style="animation:float 5s ease-in-out infinite">
+                            <div class="flex items-center gap-1">
+                                <iconify-icon icon="mdi:gnu" style="color:#6ee7b7;font-size:12px xs:14px sm:16px"></iconify-icon>
+                                <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium text-emerald-300">CuerdOS</span>
                             </div>
                         </div>
-                        <div class="absolute -bottom-3 -left-3 px-2.5 sm:px-4 py-1 sm:py-2 rounded-xl bg-[#080c08] border border-emerald-500/10 shadow-2xl" style="animation:float 6s ease-in-out infinite 1s">
-                            <div class="flex items-center gap-1 sm:gap-2">
-                                <iconify-icon icon="cib:qt" style="color:#34d399;font-size:14px sm:18px"></iconify-icon>
-                                <span class="text-[9px] sm:text-[11px] font-medium text-emerald-300">Qt 6</span>
+                        <div class="absolute -bottom-2 xs:-bottom-3 -left-2 xs:-left-3 px-2 xs:px-2.5 sm:px-3 py-0.5 xs:py-1 sm:py-1.5 rounded-xl bg-[#080c08] border border-emerald-500/10 shadow-2xl" style="animation:float 6s ease-in-out infinite 1s">
+                            <div class="flex items-center gap-1">
+                                <iconify-icon icon="cib:qt" style="color:#34d399;font-size:12px xs:14px sm:16px"></iconify-icon>
+                                <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium text-emerald-300">Qt 6</span>
                             </div>
                         </div>
                     </div>
@@ -149,36 +166,36 @@
             </div>
         </div>
         
-        <div class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-up" style="animation-delay:.8s">
-            <span class="text-[9px] sm:text-[10px] tracking-widest uppercase text-emerald-700">Scroll</span>
-            <div class="w-5 h-7 sm:h-8 rounded-full border border-emerald-500/15 flex justify-center pt-1">
-                <div class="w-1 h-1.5 sm:h-2 rounded-full bg-emerald-500/60" style="animation:float 2s ease-in-out infinite"></div>
+        <div class="absolute bottom-5 xs:bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 xs:gap-2 fade-up" style="animation-delay:.6s">
+            <span class="text-[8px] xs:text-[9px] sm:text-[10px] tracking-widest uppercase text-emerald-700">Scroll</span>
+            <div class="w-4 xs:w-5 h-6 xs:h-7 sm:h-8 rounded-full border border-emerald-500/15 flex justify-center pt-1">
+                <div class="w-0.5 xs:w-1 h-1 xs:h-1.5 sm:h-2 rounded-full bg-emerald-500/60" style="animation:float 2s ease-in-out infinite"></div>
             </div>
         </div>
     </section>
 
     <!-- Marquee -->
-    <div class="relative py-6 sm:py-10 border-y border-emerald-500/[.06] overflow-hidden">
-        <div class="marquee flex whitespace-nowrap gap-6 sm:gap-12 items-center">
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">CuerdOS</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">GNU/Linux</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Qt 6</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Python 3</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">C/C++</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">GTK 3</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">CSS/JS</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">R</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Ensamblador</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Wayland</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Diseño</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Video</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
-            <span class="text-[10px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Foto</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+    <div class="relative py-6 xs:py-8 sm:py-10 border-y border-emerald-500/[.06] overflow-hidden">
+        <div class="marquee flex whitespace-nowrap gap-6 xs:gap-8 sm:gap-12 items-center">
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">CuerdOS</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">GNU/Linux</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Qt 6</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Python 3</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">C/C++</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">GTK 3</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">CSS/JS</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">R</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Ensamblador</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Wayland</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Diseño</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Video</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
+            <span class="text-[10px] xs:text-[11px] sm:text-[12px] font-light tracking-widest uppercase text-emerald-800">Foto</span><span class="text-emerald-500/30 text-xs sm:text-base">✦</span>
         </div>
     </div>
 
-    <!-- Projects -->
-    <section id="proyectos" class="relative py-16 sm:py-24 lg:py-32">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6">
+    <!-- Projects Section -->
+    <section id="proyectos" class="relative py-16 xs:py-20 sm:py-24 lg:py-32">
+        <div class="max-w-[1400px] mx-auto px-4 xs:px-5 sm:px-6">
             <div class="fade-up flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 sm:mb-16">
                 <div>
                     <span class="text-[10px] font-semibold tracking-widest uppercase text-emerald-400 mb-3 sm:mb-4 block">CuerdOS GNU/Linux</span>
@@ -186,124 +203,190 @@
                     <p class="text-xs font-light text-emerald-600/70 mt-2 max-w-md">Aplicaciones del ecosistema construidas con Qt 6, Python 3, C/C++ y GTK 3.</p>
                 </div>
                 <a href="https://github.com/gatoverde95" target="_blank" class="flex items-center gap-2 text-xs text-emerald-600 hover:text-emerald-300 transition-colors group">
-                    <iconify-icon icon="mdi:github" width="16" sm:width="18"></iconify-icon>github.com/gatoverde95
-                    <iconify-icon icon="mdi:arrow-top-right" width="12" sm:width="14" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></iconify-icon>
+                    <iconify-icon icon="mdi:github" width="16"></iconify-icon>github.com/gatoverde95
+                    <iconify-icon icon="mdi:arrow-top-right" width="12" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></iconify-icon>
                 </a>
             </div>
 
-            <div class="fade-up mb-6"><div class="flex items-center gap-3 mb-6 sm:mb-8"><span class="cuerdos-badge px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-emerald-400">Desarrollador</span><div class="flex-1 h-px bg-emerald-500/10"></div></div></div>
+            <div class="fade-up mb-6">
+                <div class="flex items-center gap-3 mb-6 sm:mb-8">
+                    <span class="cuerdos-badge px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-emerald-400">Desarrollador</span>
+                    <div class="flex-1 h-px bg-emerald-500/10"></div>
+                </div>
+            </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-12 sm:mb-14">
+                <!-- Proyecto 1 -->
                 <a href="https://github.com/gatoverde95/K-Hello" target="_blank" class="fade-up project-card rounded-2xl bg-[#080c08] overflow-hidden group cursor-pointer">
                     <div class="relative h-[160px] sm:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-900/15 to-[#080c08] flex items-center justify-center p-5 sm:p-6">
                         <img src="rc/k-hello.webp" alt="K-Hello" class="card-logo w-16 h-16 sm:w-20 sm:h-20 object-contain">
-                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10"><iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon></div>
+                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                            <iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon>
+                        </div>
                     </div>
                     <div class="p-5 sm:p-6">
                         <h3 class="text-sm sm:text-base font-medium tracking-tight text-emerald-100 mb-2">K-Hello</h3>
                         <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-4">Pantalla de bienvenida para CuerdOS. Primer contacto visual del sistema con el usuario.</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span>
+                        </div>
                     </div>
                 </a>
 
+                <!-- Proyecto 2 -->
                 <a href="https://github.com/gatoverde95/SnapWay" target="_blank" class="fade-up project-card rounded-2xl bg-[#080c08] overflow-hidden group cursor-pointer">
                     <div class="relative h-[160px] sm:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-800/15 to-[#080c08] flex items-center justify-center p-5 sm:p-6">
                         <img src="rc/snapway.webp" alt="SnapWay" class="card-logo w-16 h-16 sm:w-20 sm:h-20 object-contain">
-                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10"><iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon></div>
+                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                            <iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon>
+                        </div>
                     </div>
                     <div class="p-5 sm:p-6">
                         <h3 class="text-sm sm:text-base font-medium tracking-tight text-emerald-100 mb-2">SnapWay</h3>
                         <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-4">Grabador de pantalla nativo para Wayland. Captura de video fluida del escritorio CuerdOS.</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Wayland</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Wayland</span>
+                        </div>
                     </div>
                 </a>
 
+                <!-- Proyecto 3 -->
                 <a href="https://github.com/gatoverde95/Wasabi-Media-Player" target="_blank" class="fade-up project-card rounded-2xl bg-[#080c08] overflow-hidden group cursor-pointer">
                     <div class="relative h-[160px] sm:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-800/15 to-[#080c08] flex items-center justify-center p-5 sm:p-6">
                         <img src="rc/wasabi.webp" alt="Wasabi" class="card-logo w-16 h-16 sm:w-20 sm:h-20 object-contain">
-                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10"><iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon></div>
+                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                            <iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon>
+                        </div>
                     </div>
                     <div class="p-5 sm:p-6">
                         <h3 class="text-sm sm:text-base font-medium tracking-tight text-emerald-100 mb-2">Wasabi Media Player</h3>
                         <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-4">Reproductor multimedia construido con GTK 3 y Python 3. Interfaz limpia con soporte para múltiples formatos.</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">GTK 3</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">GTK 3</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span>
+                        </div>
                     </div>
                 </a>
 
+                <!-- Proyecto 4 -->
                 <a href="https://github.com/CuerdOS/CuerdToken" target="_blank" class="fade-up project-card rounded-2xl bg-[#080c08] overflow-hidden group cursor-pointer">
                     <div class="relative h-[160px] sm:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-800/15 to-[#080c08] flex items-center justify-center p-5 sm:p-6">
                         <img src="rc/cuerdtoken.webp" alt="CuerdToken" class="card-logo w-16 h-16 sm:w-20 sm:h-20 object-contain">
-                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10"><iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon></div>
+                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                            <iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon>
+                        </div>
                     </div>
                     <div class="p-5 sm:p-6">
                         <h3 class="text-sm sm:text-base font-medium tracking-tight text-emerald-100 mb-2">CuerdToken</h3>
                         <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-4">Gestor de actualizaciones del sistema. Mantiene CuerdOS actualizado de forma automática y segura.</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span>
+                        </div>
                     </div>
                 </a>
 
+                <!-- Proyecto 5 -->
                 <a href="https://github.com/CuerdOS/Debbie" target="_blank" class="fade-up project-card rounded-2xl bg-[#080c08] overflow-hidden group cursor-pointer">
                     <div class="relative h-[160px] sm:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-800/15 to-[#080c08] flex items-center justify-center p-5 sm:p-6">
                         <img src="rc/debbie.webp" alt="Debbie" class="card-logo w-16 h-16 sm:w-20 sm:h-20 object-contain">
-                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10"><iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon></div>
+                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                            <iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon>
+                        </div>
                     </div>
                     <div class="p-5 sm:p-6">
                         <h3 class="text-sm sm:text-base font-medium tracking-tight text-emerald-100 mb-2">Debbie</h3>
                         <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-4">Instalador de paquetes de CuerdOS. Gestión, instalación y eliminación de software del sistema.</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span>
+                        </div>
                     </div>
                 </a>
 
+                <!-- Proyecto 6 -->
                 <a href="https://github.com/CuerdOS/Eclair" target="_blank" class="fade-up project-card rounded-2xl bg-[#080c08] overflow-hidden group cursor-pointer">
                     <div class="relative h-[160px] sm:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-800/15 to-[#080c08] flex items-center justify-center p-5 sm:p-6">
                         <img src="rc/eclair.webp" alt="Eclair" class="card-logo w-16 h-16 sm:w-20 sm:h-20 object-contain">
-                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10"><iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon></div>
+                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                            <iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon>
+                        </div>
                     </div>
                     <div class="p-5 sm:p-6">
                         <h3 class="text-sm sm:text-base font-medium tracking-tight text-emerald-100 mb-2">Eclair</h3>
                         <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-4">Monitor de información del sistema. Muestra en tiempo real datos de hardware y rendimiento.</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span>
+                        </div>
                     </div>
                 </a>
 
+                <!-- Proyecto 7 -->
                 <a href="https://github.com/CuerdOS/Yelena-Store" target="_blank" class="fade-up project-card rounded-2xl bg-[#080c08] overflow-hidden group cursor-pointer">
                     <div class="relative h-[160px] sm:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-800/15 to-[#080c08] flex items-center justify-center p-5 sm:p-6">
                         <img src="rc/store.webp" alt="Yelena Store" class="card-logo w-16 h-16 sm:w-20 sm:h-20 object-contain">
-                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10"><iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon></div>
+                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                            <iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon>
+                        </div>
                     </div>
                     <div class="p-5 sm:p-6">
                         <h3 class="text-sm sm:text-base font-medium tracking-tight text-emerald-100 mb-2">Yelena Store</h3>
                         <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-4">Tienda de aplicaciones de CuerdOS. Catálogo centralizado para descubrir e instalar software.</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span>
+                        </div>
                     </div>
                 </a>
 
+                <!-- Proyecto 8 -->
                 <a href="https://github.com/CuerdOS/CuerdRec" target="_blank" class="fade-up project-card rounded-2xl bg-[#080c08] overflow-hidden group cursor-pointer">
                     <div class="relative h-[160px] sm:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-800/15 to-[#080c08] flex items-center justify-center p-5 sm:p-6">
                         <img src="rc/cuerdrec.webp" alt="CuerdRec" class="card-logo w-16 h-16 sm:w-20 sm:h-20 object-contain">
-                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10"><iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon></div>
+                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                            <iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon>
+                        </div>
                     </div>
                     <div class="p-5 sm:p-6">
                         <h3 class="text-sm sm:text-base font-medium tracking-tight text-emerald-100 mb-2">CuerdRec</h3>
                         <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-4">Grabadora de audio y sonidos para CuerdOS. Captura de audio del sistema y micrófono.</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="fade-up mb-6"><div class="flex items-center gap-3 mb-6 sm:mb-8"><span class="collab-badge px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-emerald-400">Colaborador</span><div class="flex-1 h-px bg-emerald-500/10"></div></div></div>
+            <div class="fade-up mb-6">
+                <div class="flex items-center gap-3 mb-6 sm:mb-8">
+                    <span class="collab-badge px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-emerald-400">Colaborador</span>
+                    <div class="flex-1 h-px bg-emerald-500/10"></div>
+                </div>
+            </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
                 <a href="https://github.com/Just-Alex22/ConkyMan" target="_blank" class="fade-up project-card rounded-2xl bg-[#080c08] overflow-hidden group cursor-pointer">
                     <div class="relative h-[160px] sm:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-900/10 to-[#080c08] flex items-center justify-center p-5 sm:p-6">
                         <img src="rc/conkyman.webp" alt="ConkyMan" class="card-logo w-16 h-16 sm:w-20 sm:h-20 object-contain">
-                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10"><iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon></div>
-                        <div class="absolute top-3 left-3"><span class="collab-badge px-2 py-0.5 rounded-full text-[9px] font-semibold tracking-wider uppercase text-emerald-400">Colab</span></div>
+                        <div class="absolute top-3 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-emerald-500/10">
+                            <iconify-icon icon="mdi:arrow-top-right" class="card-arrow text-emerald-600" width="16"></iconify-icon>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <span class="collab-badge px-2 py-0.5 rounded-full text-[9px] font-semibold tracking-wider uppercase text-emerald-400">Colab</span>
+                        </div>
                     </div>
                     <div class="p-5 sm:p-6">
                         <h3 class="text-sm sm:text-base font-medium tracking-tight text-emerald-100 mb-2">ConkyMan</h3>
                         <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-4">Gestor de configuraciones Conky para CuerdOS. Personalización de widgets en el escritorio GNU/Linux.</p>
-                        <div class="flex flex-wrap gap-2"><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span><span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Qt 6</span>
+                            <span class="tag px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider uppercase">Python 3</span>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -312,10 +395,10 @@
 
     <div class="glow-line max-w-4xl mx-auto"></div>
 
-    <!-- Skills -->
-    <section id="habilidades" class="relative py-16 sm:py-24 lg:py-32">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+    <!-- Skills Section -->
+    <section id="habilidades" class="relative py-16 xs:py-20 sm:py-24 lg:py-32">
+        <div class="max-w-[1400px] mx-auto px-4 xs:px-5 sm:px-6">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-20">
                 <div class="fade-up">
                     <span class="text-[10px] font-semibold tracking-widest uppercase text-emerald-400 mb-3 sm:mb-4 block">Experiencia</span>
                     <h2 class="text-[clamp(1.6rem,4vw,3.5rem)] font-medium tracking-tight leading-[1.05] text-gradient-hero mb-5 sm:mb-6">Áreas de<br>conocimiento</h2>
@@ -334,27 +417,87 @@
                     </div>
                 </div>
                 <div class="fade-up">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:desktop-classic" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Computación</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:lan" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Redes</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:laptop" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Hardware</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:palette-outline" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Diseño</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:vector-bezier" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Vectorial</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:human-greeting-proximity" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">UX</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:video-outline" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Video</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:camera-outline" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Foto</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:magnify" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Finder</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:alert-octagon-outline" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">ID Errónea</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="cib:qt" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Qt 6</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="cib:python" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Python 3</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="cib:c-plusplus" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">C/C++</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:gtk" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">GTK 3</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:language-css3" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">CSS/JS</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="simple-icons:r" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">R</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="cib:assembly" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Ensamblador</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:gnu" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">GNU/Linux</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:chip" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Embebidos</span></div>
-                        <div class="group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default"><iconify-icon icon="mdi:account-group-outline" style="color:#34d399;font-size:22px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon><span class="text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Organización</span></div>
+                    <div class="grid grid-cols-2 xs:grid-cols-3 gap-2 xs:gap-3 sm:gap-4">
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:desktop-classic" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Computación</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:lan" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Redes</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:laptop" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Hardware</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:palette-outline" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Diseño</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:vector-bezier" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Vectorial</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:human-greeting-proximity" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">UX</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:video-outline" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Video</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:camera-outline" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Foto</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:magnify" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Finder</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:alert-octagon-outline" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">ID Errónea</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="cib:qt" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Qt 6</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="cib:python" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Python 3</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="cib:c-plusplus" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">C/C++</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:gtk" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">GTK 3</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:language-css3" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">CSS/JS</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="simple-icons:r" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">R</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="cib:assembly" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Ensamblador</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:gnu" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">GNU/Linux</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:chip" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Embebidos</span>
+                        </div>
+                        <div class="group flex flex-col items-center gap-2 p-3 xs:p-4 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 cursor-default">
+                            <iconify-icon icon="mdi:account-group-outline" style="color:#34d399;font-size:20px xs:24px sm:28px" class="group-hover:scale-110 transition-transform"></iconify-icon>
+                            <span class="text-[8px] xs:text-[9px] sm:text-[10px] font-medium tracking-wider uppercase text-emerald-500 group-hover:text-emerald-200 transition-colors text-center">Organización</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -363,9 +506,9 @@
 
     <div class="glow-line max-w-4xl mx-auto"></div>
 
-    <!-- About -->
-    <section id="sobre" class="relative py-16 sm:py-24 lg:py-32">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6">
+    <!-- About Section -->
+    <section id="sobre" class="relative py-16 xs:py-20 sm:py-24 lg:py-32">
+        <div class="max-w-[1400px] mx-auto px-4 xs:px-5 sm:px-6">
             <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20">
                 <div class="lg:col-span-4 fade-up">
                     <span class="text-[10px] font-semibold tracking-widest uppercase text-emerald-400 mb-3 sm:mb-4 block">Sobre mí</span>
@@ -418,39 +561,71 @@
 
     <div class="glow-line max-w-4xl mx-auto"></div>
 
-    <!-- Contact -->
-    <section id="contacto" class="relative py-16 sm:py-24 lg:py-32">
-        <div class="absolute inset-0 pointer-events-none"><div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] sm:w-[700px] lg:w-[800px] h-[300px] sm:h-[350px] lg:h-[400px] rounded-full bg-emerald-500/[.03] blur-[120px]"></div></div>
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 relative">
+    <!-- Contact Section -->
+    <section id="contacto" class="relative py-16 xs:py-20 sm:py-24 lg:py-32">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] xs:w-[600px] sm:w-[700px] lg:w-[800px] h-[300px] sm:h-[400px] rounded-full bg-emerald-500/[.03] blur-[120px]"></div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-4 xs:px-5 sm:px-6 relative">
             <div class="max-w-2xl mx-auto text-center fade-up">
                 <span class="text-[10px] font-semibold tracking-widest uppercase text-emerald-400 mb-3 sm:mb-4 block">Contacto</span>
                 <h2 class="text-[clamp(1.6rem,4vw,3.5rem)] font-medium tracking-tight leading-[1.05] text-gradient-hero mb-5 sm:mb-6">Conectemos</h2>
                 <p class="text-xs font-light text-emerald-500/70 leading-relaxed mb-10 sm:mb-14">¿Quieres colaborar en CuerdOS, comentar sobre algún proyecto o simplemente charlar? Encuéntrame en estas plataformas.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 max-w-4xl mx-auto">
                 <a href="mailto:perezleo033@gmail.com" class="contact-link fade-up flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 group">
-                    <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0"><iconify-icon icon="mdi:email-outline" style="color:#34d399;font-size:18px"></iconify-icon></div>
-                    <div class="min-w-0"><div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Email</div><div class="text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">perezleo033@gmail.com</div></div>
+                    <div class="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0">
+                        <iconify-icon icon="mdi:email-outline" style="color:#34d399;font-size:18px"></iconify-icon>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Email</div>
+                        <div class="text-[11px] xs:text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">perezleo033@gmail.com</div>
+                    </div>
                 </a>
                 <a href="https://github.com/gatoverde95" target="_blank" class="contact-link fade-up flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 group">
-                    <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0"><iconify-icon icon="mdi:github" style="color:#34d399;font-size:18px"></iconify-icon></div>
-                    <div class="min-w-0"><div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">GitHub</div><div class="text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">gatoverde95</div></div>
+                    <div class="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0">
+                        <iconify-icon icon="mdi:github" style="color:#34d399;font-size:18px"></iconify-icon>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">GitHub</div>
+                        <div class="text-[11px] xs:text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">gatoverde95</div>
+                    </div>
                 </a>
                 <a href="https://t.me/GatoVerde95" target="_blank" class="contact-link fade-up flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 group">
-                    <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0"><iconify-icon icon="mdi:send" style="color:#34d399;font-size:18px"></iconify-icon></div>
-                    <div class="min-w-0"><div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Telegram</div><div class="text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">@GatoVerde95</div></div>
+                    <div class="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0">
+                        <iconify-icon icon="mdi:send" style="color:#34d399;font-size:18px"></iconify-icon>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Telegram</div>
+                        <div class="text-[11px] xs:text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">@GatoVerde95</div>
+                    </div>
                 </a>
                 <a href="https://bsky.app/profile/gatoverde95.bsky.social" target="_blank" class="contact-link fade-up flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 group">
-                    <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0"><iconify-icon icon="simple-icons:bluesky" style="color:#34d399;font-size:18px"></iconify-icon></div>
-                    <div class="min-w-0"><div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Bluesky</div><div class="text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">@gatoverde95.bsky.social</div></div>
+                    <div class="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0">
+                        <iconify-icon icon="simple-icons:bluesky" style="color:#34d399;font-size:18px"></iconify-icon>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Bluesky</div>
+                        <div class="text-[11px] xs:text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">@gatoverde95.bsky.social</div>
+                    </div>
                 </a>
                 <a href="https://www.facebook.com/leo.h.prz" target="_blank" class="contact-link fade-up flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 group">
-                    <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0"><iconify-icon icon="mdi:facebook" style="color:#34d399;font-size:18px"></iconify-icon></div>
-                    <div class="min-w-0"><div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Facebook</div><div class="text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">leo.h.prz</div></div>
+                    <div class="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0">
+                        <iconify-icon icon="mdi:facebook" style="color:#34d399;font-size:18px"></iconify-icon>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Facebook</div>
+                        <div class="text-[11px] xs:text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">leo.h.prz</div>
+                    </div>
                 </a>
                 <a href="https://www.instagram.com/leo.h.prz" target="_blank" class="contact-link fade-up flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-2xl bg-emerald-500/[.03] border border-emerald-500/[.08] hover:border-emerald-500/20 hover:bg-emerald-500/[.06] transition-all duration-300 group">
-                    <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0"><iconify-icon icon="mdi:instagram" style="color:#34d399;font-size:18px"></iconify-icon></div>
-                    <div class="min-w-0"><div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Instagram</div><div class="text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">@leo.h.prz</div></div>
+                    <div class="w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/[.05] border border-emerald-500/[.08] flex items-center justify-center group-hover:border-emerald-500/20 transition-all duration-300 shrink-0">
+                        <iconify-icon icon="mdi:instagram" style="color:#34d399;font-size:18px"></iconify-icon>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="text-[10px] text-emerald-600 tracking-wider uppercase mb-0.5">Instagram</div>
+                        <div class="text-[11px] xs:text-xs text-emerald-300 group-hover:text-emerald-100 transition-colors truncate">@leo.h.prz</div>
+                    </div>
                 </a>
             </div>
         </div>
@@ -458,20 +633,20 @@
 
     <!-- Footer -->
     <footer class="border-t border-emerald-500/[.06]">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-6 sm:py-12">
+        <div class="max-w-[1400px] mx-auto px-4 xs:px-5 sm:px-6 py-6 sm:py-12">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
                 <a href="#" class="flex items-center gap-2.5">
-                    <img src="asc.svg" alt="Logo" class="w-6 h-6 sm:w-7 sm:h-7">
-                    <span class="text-emerald-200 font-medium text-xs tracking-tight">The GatoVerde95 Journal</span>
+                    <img src="asc.svg" alt="Logo" class="w-5 xs:w-6 sm:w-7 h-5 xs:h-6 sm:h-7">
+                    <span class="text-emerald-200 font-medium text-[10px] xs:text-xs tracking-tight">The GatoVerde95 Journal</span>
                 </a>
-                <p class="text-[11px] text-emerald-700 order-3 sm:order-none">© 2025 Leo H. Perez — Honduras</p>
-                <div class="flex items-center gap-4 sm:gap-5">
-                    <a href="https://cuerdos.github.io" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:gnu" width="18"></iconify-icon></a>
-                    <a href="https://github.com/gatoverde95" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:github" width="18"></iconify-icon></a>
-                    <a href="https://t.me/GatoVerde95" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:send" width="18"></iconify-icon></a>
-                    <a href="https://bsky.app/profile/gatoverde95.bsky.social" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="simple-icons:bluesky" width="16"></iconify-icon></a>
-                    <a href="https://www.facebook.com/leo.h.prz" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:facebook" width="18"></iconify-icon></a>
-                    <a href="https://www.instagram.com/leo.h.prz" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:instagram" width="18"></iconify-icon></a>
+                <p class="text-[10px] xs:text-[11px] text-emerald-700 order-3 sm:order-none">© 2025 Leo H. Perez — Honduras</p>
+                <div class="flex items-center gap-3 xs:gap-4 sm:gap-5">
+                    <a href="https://cuerdos.github.io" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:gnu" width="16 xs:18"></iconify-icon></a>
+                    <a href="https://github.com/gatoverde95" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:github" width="16 xs:18"></iconify-icon></a>
+                    <a href="https://t.me/GatoVerde95" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:send" width="16 xs:18"></iconify-icon></a>
+                    <a href="https://bsky.app/profile/gatoverde95.bsky.social" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="simple-icons:bluesky" width="14 xs:16"></iconify-icon></a>
+                    <a href="https://www.facebook.com/leo.h.prz" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:facebook" width="16 xs:18"></iconify-icon></a>
+                    <a href="https://www.instagram.com/leo.h.prz" target="_blank" class="text-emerald-600 hover:text-emerald-300 transition-colors duration-300"><iconify-icon icon="mdi:instagram" width="16 xs:18"></iconify-icon></a>
                 </div>
             </div>
         </div>
@@ -481,10 +656,13 @@
         const mobileToggle=document.getElementById('mobile-toggle'),mobileMenu=document.getElementById('mobile-menu');let menuOpen=false;
         mobileToggle.addEventListener('click',()=>{menuOpen=!menuOpen;mobileMenu.classList.toggle('hidden',!menuOpen);mobileToggle.innerHTML=menuOpen?'<iconify-icon icon="mdi:close" width="24"></iconify-icon>':'<iconify-icon icon="mdi:menu" width="24"></iconify-icon>'});
         document.querySelectorAll('.mobile-link').forEach(l=>{l.addEventListener('click',()=>{menuOpen=false;mobileMenu.classList.add('hidden');mobileToggle.innerHTML='<iconify-icon icon="mdi:menu" width="24"></iconify-icon>'})});
+        
         const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('show'),en.target.dataset.delay||0);obs.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
         document.querySelectorAll('.fade-up').forEach((el,i)=>{el.dataset.delay=(i%6)*100;obs.observe(el)});
+        
         const sObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.querySelectorAll('.skill-fill').forEach((b,i)=>setTimeout(()=>b.classList.add('animate'),i*120));sObs.unobserve(en.target)}})},{threshold:.3});
         document.querySelectorAll('.skill-fill').forEach(b=>sObs.observe(b.closest('section')||b.parentElement));
+        
         const nav=document.querySelector('nav');window.addEventListener('scroll',()=>{nav.style.background=scrollY>50?'rgba(6,10,6,.88)':'rgba(6,10,6,.7)'});
         const secs=document.querySelectorAll('section[id]'),nls=document.querySelectorAll('.nav-link');window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-100)c=s.id});nls.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+c?'#d1fae5':''})});
     </script>
