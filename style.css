@@ -17,13 +17,6 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
-    body {
-        letter-spacing: .01em;
-    }
-}
-
 body::before {
     content: '';
     position: fixed;
@@ -43,42 +36,9 @@ body::before {
     -webkit-mask-image: linear-gradient(to bottom, transparent 2%, black 30%, black 70%, transparent 98%);
 }
 
-/* Pantallas pequeñas - ajuste de grid background */
-@media (max-width: 640px) {
-    .grid-bg {
-        background-size: 32px 32px;
-    }
-}
-
 @keyframes fadeUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-        filter: blur(6px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-
-/* Animación más rápida en móviles para mejor rendimiento */
-@media (max-width: 640px) {
-    @keyframes fadeUp {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-            filter: blur(4px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-        }
-    }
+    0% { opacity: 0; transform: translateY(30px); filter: blur(6px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 .fade-up {
@@ -91,59 +51,19 @@ body::before {
     animation: fadeUp .9s cubic-bezier(.25, 1, .5, 1) both;
 }
 
-@media (max-width: 640px) {
-    .fade-up.show {
-        animation: fadeUp .7s cubic-bezier(.25, 1, .5, 1) both;
-    }
-}
-
 @keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-}
-
-/* En móviles la animación flotante más sutil */
-@media (max-width: 640px) {
-    @keyframes float {
-
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-6px);
-        }
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 
 @keyframes pulse-ring {
-    0% {
-        transform: scale(1);
-        opacity: .6;
-    }
-
-    100% {
-        transform: scale(1.8);
-        opacity: 0;
-    }
+    0% { transform: scale(1); opacity: .6; }
+    100% { transform: scale(1.8); opacity: 0; }
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .marquee {
@@ -152,13 +72,6 @@ body::before {
 
 .marquee:hover {
     animation-play-state: paused;
-}
-
-/* Ajuste del ancho del marquee en móviles */
-@media (max-width: 640px) {
-    .marquee {
-        animation: marquee 25s linear infinite;
-    }
 }
 
 .text-gradient-hero {
@@ -178,24 +91,10 @@ body::before {
     border: 1px solid rgba(16, 185, 129, .08);
 }
 
-/* En móviles la transición más rápida y sin hover complejo */
-@media (max-width: 768px) {
-    .project-card {
-        transition: all .3s cubic-bezier(.25, 1, .5, 1);
-    }
-}
-
 .project-card:hover {
     transform: translateY(-6px);
     border-color: rgba(16, 185, 129, .3);
     box-shadow: 0 20px 60px -15px rgba(16, 185, 129, .12);
-}
-
-@media (max-width: 768px) {
-    .project-card:active {
-        transform: scale(0.98);
-        border-color: rgba(16, 185, 129, .3);
-    }
 }
 
 .project-card:hover .card-logo {
@@ -255,14 +154,6 @@ body::before {
     border-color: rgba(16, 185, 129, .25);
 }
 
-/* Touch feedback para móviles */
-@media (max-width: 768px) {
-    .tag:active {
-        background: rgba(16, 185, 129, .12);
-        transform: scale(0.95);
-    }
-}
-
 .skill-fill {
     height: 100%;
     border-radius: 999px;
@@ -303,13 +194,6 @@ body::before {
     box-shadow: 0 0 35px rgba(16, 185, 129, .25);
 }
 
-/* Touch feedback */
-@media (max-width: 768px) {
-    .btn-glow:active {
-        transform: scale(0.97);
-    }
-}
-
 .btn-outline {
     border: 1px solid rgba(16, 185, 129, .15);
     color: #a7f3d0;
@@ -320,13 +204,6 @@ body::before {
     border-color: rgba(16, 185, 129, .4);
     background: rgba(16, 185, 129, .08);
     box-shadow: 0 0 20px rgba(16, 185, 129, .1);
-}
-
-@media (max-width: 768px) {
-    .btn-outline:active {
-        background: rgba(16, 185, 129, .08);
-        transform: scale(0.97);
-    }
 }
 
 .btn-cuerdos {
@@ -373,15 +250,6 @@ body::before {
     transform: translateX(4px);
 }
 
-/* Touch feedback para contactos en móviles */
-@media (max-width: 768px) {
-    .contact-link:active {
-        transform: scale(0.98);
-        background: rgba(16, 185, 129, .06);
-    }
-}
-
-/* Scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -399,44 +267,83 @@ body::before {
     background: rgba(16, 185, 129, .25);
 }
 
-/* Para pantallas táctiles, scrollbar más ancho */
-@media (max-width: 768px) {
+/* ========== MEDIA QUERIES MÓVILES ========== */
+
+@media (max-width: 480px) {
+    .grid-bg {
+        background-size: 32px 32px;
+    }
+
+    @keyframes fadeUp {
+        0% { opacity: 0; transform: translateY(20px); filter: blur(4px); }
+        100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    .fade-up.show {
+        animation: fadeUp .7s cubic-bezier(.25, 1, .5, 1) both;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+    }
+
+    .marquee {
+        animation: marquee 25s linear infinite;
+    }
+
+    .project-card {
+        transition: all .3s cubic-bezier(.25, 1, .5, 1);
+    }
+
+    .project-card:active {
+        transform: scale(0.98);
+    }
+
+    .tag:active {
+        background: rgba(16, 185, 129, .12);
+        transform: scale(0.95);
+    }
+
+    .btn-glow:active,
+    .btn-outline:active {
+        transform: scale(0.97);
+    }
+
+    .contact-link:active {
+        transform: scale(0.98);
+    }
+
     ::-webkit-scrollbar {
         width: 4px;
     }
-}
 
-/* Clase auxiliar para pantallas extra pequeñas */
-@media (min-width: 480px) {
-    .xs\:inline {
-        display: inline;
+    p, .text-xs {
+        line-height: 1.6;
     }
 
-    .xs\:hidden {
-        display: none;
+    section {
+        scroll-margin-top: 60px;
     }
 }
 
-/* Ajustes de navegación para móviles */
-nav {
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    background: rgba(6, 10, 6, .75);
-    border-bottom: 1px solid rgba(16, 185, 129, .08);
-}
-
-/* Prevenir zoom en inputs para móviles (si los hubiera) */
 @media (max-width: 768px) {
+    .project-card:active {
+        transform: scale(0.98);
+    }
 
-    input,
-    select,
-    textarea {
+    .contact-link:active {
+        transform: scale(0.98);
+        background: rgba(16, 185, 129, .06);
+    }
+
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    input, select, textarea {
         font-size: 16px;
     }
-}
-
-/* Optimización de rendimiento para animaciones en móviles */
-@media (max-width: 768px) {
 
     .project-card,
     .btn-glow,
@@ -446,28 +353,10 @@ nav {
     }
 }
 
-/* Mejora de legibilidad en móviles */
-@media (max-width: 640px) {
-
-    p,
-    .text-xs {
-        line-height: 1.6;
-    }
-}
-
-/* Ajuste de espaciado para secciones en móviles */
-@media (max-width: 640px) {
-    section {
-        scroll-margin-top: 60px;
-    }
-}
-
-/* Soporte para notch en móviles */
 @supports (padding: max(0px)) {
     .fixed.top-0 {
         padding-top: env(safe-area-inset-top);
     }
-
     .fixed.bottom-0 {
         padding-bottom: env(safe-area-inset-bottom);
     }
